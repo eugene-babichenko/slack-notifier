@@ -1,0 +1,31 @@
+{
+	"rules": {
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"indent": [
+			"error",
+			"tab"
+		],
+		"max-len": [
+			"error",
+			{
+				"code": 100
+			}
+		]
+	},
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 12
+	},
+	"extends": [
+		"google"
+	],
+	"env": {
+		"es2021": true,
+		"browser": true
+	}
+}

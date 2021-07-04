@@ -1,0 +1,72 @@
+name: Send Slack notification
+description: Send a Slack message with the workflow data.
+runs:
+  using: node12
+  main: dist/index.js
+inputs:
+  webhook:
+    description: URL of Slack incoming webhook.
+    required: true
+  status:
+    description: |
+      The status to be used for the notification. A status of a step can be used.
+      Must be on of:
+      - `success`
+      - `failure`
+      - `cancelled`
+    required: true
+  text:
+    description: |
+      The text of the notification. You can use Slack message markup.
+
+      By default this is set based on the provided `status`.
+    required: false
+    default: ''
+  color:
+    description: |
+      The color this message will be highlighted with.
+
+      By default this is set based on the provided `status`.
+    required: false
+    default: ''
+  username:
+    description: |
+      Change the displayed name of the app for this message.
+
+      This requires your app to have
+      [`chat:write.customize`](https://api.slack.com/scopes/chat:write.customize)
+      scope enabled. Otherwise this field will not have any effect. See
+      (Slack API docs)[https://api.slack.com/messaging/sending#impersonation] for
+      more details.
+    required: false
+    default: ''
+  icon_url:
+    description: |
+      Change the displayed icon of the app.
+
+      This requires your app to have
+      [`chat:write.customize`](https://api.slack.com/scopes/chat:write.customize)
+      scope enabled. Otherwise this field will not have any effect. See
+      (Slack API docs)[https://api.slack.com/messaging/sending#impersonation] for
+      more details.
+    required: false
+    default: ''
+  icon_emoji:
+    description: |
+      Display an emoji as the app icon.
+
+      This requires your app to have
+      [`chat:write.customize`](https://api.slack.com/scopes/chat:write.customize)
+      scope enabled. Otherwise this field will not have any effect. See
+      (Slack API docs)[https://api.slack.com/messaging/sending#impersonation] for
+      more details.
+    required: false
+    default: ''
+  custom_fields:
+    description: |
+      A JSON array of additional fields to be displayed along with the default
+      ones. See
+      (Field objects)[https://api.slack.com/reference/messaging/attachments#field_objects]
+      documentation for the details.
+    required: false
+    default: '[]'
