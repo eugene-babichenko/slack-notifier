@@ -43,6 +43,8 @@ const runId = process.env.GITHUB_RUN_ID;
 const workflow = process.env.GITHUB_WORKFLOW;
 const commitSha = process.env.GITHUB_SHA;
 
+const commitShaShort = commitSha.slice(0, 7);
+
 const fields = [
 	{
 		title: 'Ref',
@@ -61,7 +63,7 @@ const fields = [
 	},
 	{
 		title: 'Commit',
-		value: '<' + server + '/' + repo + '/commit/' + commitSha + '|' + commitSha + '>',
+		value: '<' + server + '/' + repo + '/commit/' + commitSha + '|' + commitShaShort + '>',
 		short: true,
 	},
 ];
