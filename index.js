@@ -1,8 +1,7 @@
-const core = require('@actions/core');
-const {IncomingWebhook} = require('@slack/webhook');
+import core from '@actions/core';
+import axios from 'axios';
 
 const webhookUrl = core.getInput('webhook', {required: true});
-const webhook = new IncomingWebhook(webhookUrl);
 
 const status = core.getInput('status');
 
@@ -58,12 +57,12 @@ const fields = [
 	},
 	{
 		title: 'Actions URL',
-		value: '<' + server + '/' + repo + '/actions/runs/' + runId + '|' + workflow + '>',
+		value: `<${server}/${repo}/actions/runs/${runId}|${workflow}>`,
 		short: true,
 	},
 	{
 		title: 'Commit',
-		value: '<' + server + '/' + repo + '/commit/' + commitSha + '|' + commitShaShort + '>',
+		value: `<${server}/${repo}/commit/${commitSha}|${commitShaShort}>`,
 		short: true,
 	},
 ];
@@ -78,13 +77,13 @@ const message = {
 	attachments: [{
 		color: color,
 		author_name: actor,
-		author_link: server + '/' + actor,
-		author_icon: server + '/' + actor + '.png?size=32',
+		author_link: `${server}/${actor}`,
+		author_icon: `${server}/${actor}.png?size=32`,
 		fields: fields.concat(customFields),
 	}],
 };
 
 // 4. send message
 (async () => {
-	await webhook.send(message);
+	await axios.post(webhookUrl, message);
 })();
