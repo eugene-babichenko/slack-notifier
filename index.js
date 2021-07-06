@@ -10,7 +10,7 @@ const status = core.getInput('status');
 let text = core.getInput('text');
 if (text === '') {
 	if (status === 'success') {
-		text = ':rocket| Action ran successfully.';
+		text = ':rocket: Action ran successfully.';
 	} else if (status === 'failure') {
 		text = ':x: Action failed.';
 	} else if (status === 'cancelled') {
