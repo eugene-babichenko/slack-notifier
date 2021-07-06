@@ -10,9 +10,9 @@
 		"@slack/webhook": "^6.0.0"
 	},
 	"devDependencies": {
-		"@vercel/ncc": "^0.28.6"
+		"esbuild": "^0.12.15"
 	},
 	"scripts": {
-		"build": "ncc build index.js -m -o dist"
+		"build": "esbuild index.js --outfile=dist/index.js --bundle --minify --external:os --external:path --external:fs"
 	}
 }
