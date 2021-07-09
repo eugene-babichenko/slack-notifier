@@ -1,0 +1,23 @@
+name: Lint
+
+on:
+  push:
+
+jobs:
+  eslint:
+    name: Check eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - run: npm install --dev
+      - run: npm run eslint
+
+  editorconfig:
+    name: Check editorconfig rules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: editorconfig-checker/action-editorconfig-checker@v1

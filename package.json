@@ -10,10 +10,13 @@
 		"axios": "^0.21.1"
 	},
 	"devDependencies": {
-		"esbuild": "^0.12.15"
+		"esbuild": "^0.12.15",
+		"eslint": "^7.30.0",
+		"eslint-config-google": "^0.14.0"
 	},
 	"scripts": {
 		"build": "esbuild index.js --outfile=dist/index.js --bundle --minify --external:os --external:path --external:fs",
-		"start": "node dist/index.js"
+		"start": "node dist/index.js",
+		"eslint": "eslint index.js"
 	}
 }
