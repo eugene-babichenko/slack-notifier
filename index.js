@@ -67,12 +67,12 @@ const fields = [
 	},
 ];
 
-const customFields = JSON.parse(core.getInput('custom_fields'));
+const customFields = JSON.parse(core.getInput('custom-fields'));
 
 const message = {
 	username: core.getInput('username'),
-	icon_url: core.getInput('icon_url'),
-	icon_emoji: core.getInput('icon_emoji'),
+	icon_url: core.getInput('icon-url'),
+	icon_emoji: core.getInput('icon-emoji'),
 	text: text,
 	attachments: [{
 		color: color,

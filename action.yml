@@ -40,7 +40,7 @@ inputs:
       more details.
     required: false
     default: ''
-  icon_url:
+  icon-url:
     description: |
       Change the displayed icon of the app.
 
@@ -51,7 +51,7 @@ inputs:
       more details.
     required: false
     default: ''
-  icon_emoji:
+  icon-emoji:
     description: |
       Display an emoji as the app icon.
 
@@ -62,7 +62,7 @@ inputs:
       more details.
     required: false
     default: ''
-  custom_fields:
+  custom-fields:
     description: |
       A JSON array of additional fields to be displayed along with the default
       ones. See
