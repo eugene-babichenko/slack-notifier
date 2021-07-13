@@ -15,7 +15,7 @@
 		"eslint-config-google": "^0.14.0"
 	},
 	"scripts": {
-		"build": "esbuild index.js --outfile=dist/index.js --bundle --minify --external:os --external:path --external:fs",
+		"build": "esbuild index.js --outfile=dist/index.js --bundle --minify --target=node12 --platform=node",
 		"start": "node dist/index.js",
 		"eslint": "eslint index.js"
 	}
