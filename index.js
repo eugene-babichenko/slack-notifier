@@ -52,7 +52,7 @@ const fields = [
 	},
 	{
 		title: 'Event',
-		value: process.env.GITHUB_EVENT,
+		value: process.env.GITHUB_EVENT_NAME,
 		short: true,
 	},
 	{
